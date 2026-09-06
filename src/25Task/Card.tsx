@@ -4,8 +4,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Paper } from "@mui/material";
 import { Link } from "react-router-dom";
+// import { AddDeleteFavouriteFilm } from "../../lib/FavouriteFilms";
+import { MyFavouriteIcon } from "./MyFavouriteIcon";
 // import { createContext, useState } from "react";
 // import { useImmer } from "use-immer";
 // import { useEffect, useState } from "react";
@@ -98,6 +100,7 @@ function MiniCard({
   raiting:number
 }) {
   return (
+    
     <Card
       sx={{
         width: "100%",
@@ -107,6 +110,7 @@ function MiniCard({
         flexDirection: "row",
       }}
     >
+      
       <CardMedia
         sx={{ objectFit: "contain", width: 200, flexShrink: 0 }}
         component="img"
@@ -122,6 +126,7 @@ function MiniCard({
           flexGrow: 1, //заставляет занять весть оставшийся объем
         }}
       >
+        {/* <Paper elevation={5}> */}
         <CardContent>
           <Link to={`/${id}`}>
             <h2>{title}</h2>
@@ -141,13 +146,17 @@ function MiniCard({
         </CardContent>
         <CardActions sx={{ display: "flex", justifyContent: "flex-end" }}>
           <button onClick={() => console.log(id)}>Оценка: {(Math.round(raiting*100))/100}</button>
-          <IconButton>
-            <FavoriteIcon sx={{color:"disabled"}} ></FavoriteIcon>
-            <FavoriteIcon sx={{color:"#d32f2f"}} ></FavoriteIcon>
-          </IconButton>
-        </CardActions>
+          {/* <IconButton> */}
+            {/* <FavoriteIcon sx={{color:"disabled"}} ></FavoriteIcon> */}
+            {/* <FavoriteIcon onClick={()=>AddDeleteFavouriteFilm({url:`/account/${22187086}/favorite/movies`})} sx={{color:"#da1010"}} ></FavoriteIcon> */}
+            <MyFavouriteIcon id={id} ></MyFavouriteIcon>
+          {/* </IconButton> */}
+        </CardActions>   
+        {/* </Paper>    */}
       </Box>
+      
     </Card>
+    
   );
 }
 
