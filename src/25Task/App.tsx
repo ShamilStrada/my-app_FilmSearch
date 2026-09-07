@@ -10,6 +10,7 @@ import IconButton from "@mui/material/IconButton";
 import ClearIcon from "@mui/icons-material/Clear";
 import { MyPagination } from "./MyPagination";
 import { InputFilm } from "./InputFilm";
+
 export function App() {
   const [page, setPage] = useState<number>(1);///страница 
   const [stateFilter, usestateFilter] = useState<boolean>(false);///обновление фильтров 
