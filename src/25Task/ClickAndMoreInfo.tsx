@@ -6,8 +6,8 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { IconButton } from "@mui/material"; 
+// import FavoriteIcon from '@mui/icons-material/Favorite';
+// import { IconButton } from "@mui/material"; 
 
 export function AppClick(){
 const {idAboutFilm} = useParams() as {idAboutFilm:string};
@@ -62,7 +62,7 @@ return(
       </CardContent>
       <CardActions>
          {/* <button onClick={()=>console.log(id)}>Подробнее</button> */}
-        <IconButton><FavoriteIcon></FavoriteIcon></IconButton>
+        {/* <IconButton><FavoriteIcon></FavoriteIcon></IconButton> */}
       </CardActions>
     </Card></> 
 

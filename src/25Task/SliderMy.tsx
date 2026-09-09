@@ -7,8 +7,8 @@ type MySliderProps={
 export function MySlider({value,handleChange}:MySliderProps) {
 return (
   <Slider
-    min={1900}
-    max={2026}
+    min={1950}
+    max={2030}
     step={1}
     valueLabelDisplay="on"
     value={value}

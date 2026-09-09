@@ -3,8 +3,8 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { Box, IconButton, Paper } from "@mui/material";
+// import FavoriteIcon from "@mui/icons-material/Favorite";
+import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
 // import { AddDeleteFavouriteFilm } from "../../lib/FavouriteFilms";
 import { MyFavouriteIcon } from "./MyFavouriteIcon";
@@ -74,6 +74,7 @@ export function MyCard({
         //вторая часть проверяет находится ли во временном промежутке
         ///обязательно фигурные скобки если return большой
         //Если фигурные скобки, то не работает
+        // <Paper elevation={9} >
         <MiniCard
           key={i++}
           image={a.poster_path}
@@ -82,6 +83,7 @@ export function MyCard({
           id={a.id}
           raiting={a.vote_average}
         ></MiniCard>
+        // </Paper>
       ))
   );
 }
