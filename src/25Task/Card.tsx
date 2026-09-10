@@ -1,13 +1,13 @@
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 // import FavoriteIcon from "@mui/icons-material/Favorite";
-import { Box } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 // import { AddDeleteFavouriteFilm } from "../../lib/FavouriteFilms";
-import { MyFavouriteIcon } from "./MyFavouriteIcon";
+import { MyFavouriteIcon } from './MyFavouriteIcon';
 // import { createContext, useState } from "react";
 // import { useImmer } from "use-immer";
 // import { useEffect, useState } from "react";
@@ -34,15 +34,13 @@ export function MyCard({
   const filterMassive = filterAutocompleteCard
     .map((a) => Object.values(a))
     .flat()
-    .filter((a) => typeof a !== "string");
+    .filter((a) => typeof a !== 'string');
   console.log(filterMassive);
   console.log(value);
   console.log(
     listResults.filter(
-      (a) =>
-        value[1] > parseInt(a.release_date) &&
-        parseInt(a.release_date) < value[0],
-    ),
+      (a) => value[1] > parseInt(a.release_date) && parseInt(a.release_date) < value[0]
+    )
   );
   console.log(searchResults);
 
@@ -58,73 +56,68 @@ export function MyCard({
   //   console.log(listResults[i].title);
   //   console.log(listResults[i].overview);
 
-  return (
-    ((searchResults.length>0? searchResults:
-    listResults
-    ).filter(
-        (a) =>
-          (filterMassive.length > 0
-            ? filterMassive.some((item) => a.genre_ids.includes(item))
-            : true) &&
-          !(value[0] >= parseInt(a.release_date)) &&
-          parseInt(a.release_date) <= value[1],
-      )
-    ).map((a) => (
-        //some проверяет подходит ли хотя бы один под описание, если да то возращает true, includes проверяет есть ли он там
-        //вторая часть проверяет находится ли во временном промежутке
-        ///обязательно фигурные скобки если return большой
-        //Если фигурные скобки, то не работает
-        // <Paper elevation={9} >
-        <MiniCard
-          key={i++}
-          image={a.poster_path}
-          title={a.title}
-          overview={a.overview}
-          id={a.id}
-          raiting={a.vote_average}
-        ></MiniCard>
-        // </Paper>
-      ))
-  );
+  return (searchResults.length > 0 ? searchResults : listResults)
+    .filter(
+      (a) =>
+        (filterMassive.length > 0
+          ? filterMassive.some((item) => a.genre_ids.includes(item))
+          : true) &&
+        !(value[0] >= parseInt(a.release_date)) &&
+        parseInt(a.release_date) <= value[1]
+    )
+    .map((a) => (
+      //some проверяет подходит ли хотя бы один под описание, если да то возращает true, includes проверяет есть ли он там
+      //вторая часть проверяет находится ли во временном промежутке
+      ///обязательно фигурные скобки если return большой
+      //Если фигурные скобки, то не работает
+      // <Paper elevation={9} >
+      <MiniCard
+        key={i++}
+        image={a.poster_path}
+        title={a.title}
+        overview={a.overview}
+        id={a.id}
+        raiting={a.vote_average}
+      ></MiniCard>
+      // </Paper>
+    ));
 }
 function MiniCard({
   image,
   title,
   overview,
   id,
-  raiting
+  raiting,
 }: ///либо пропсы можно прописать так
 {
   image: string;
   title: string;
   overview: string;
   id: number;
-  raiting:number
+  raiting: number;
 }) {
   return (
-    
     <Card
       sx={{
-        width: "100%",
+        width: '100%',
         height: 250,
         m: 1,
-        display: "flex",
-        flexDirection: "row",
+        display: 'flex',
+        flexDirection: 'row',
       }}
     >
-      
       <CardMedia
-        sx={{ objectFit: "contain", width: 200, flexShrink: 0 }}
+        sx={{ objectFit: 'contain', width: 200, flexShrink: 0 }}
         component="img"
         image={`https://image.tmdb.org/t/p/original${image}`}
         alt="Простите, не вышло"
       />
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          height: "100%",
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-start',
+          height: '100%',
           flexGrow: 1, //заставляет занять весть оставшийся объем
         }}
       >
@@ -136,29 +129,29 @@ function MiniCard({
           <Typography
             sx={{
               fontSize: 14,
-              display: "-webkit-box",
+              display: '-webkit-box',
               WebkitLineClamp: 3,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
             }}
           >
             {overview}
           </Typography>
           {/* <Typography>{`https://image.tmdb.org/t/p/original${image}`}</Typography> */}
         </CardContent>
-        <CardActions sx={{ display: "flex", justifyContent: "flex-end" }}>
-          <button onClick={() => console.log(id)}>Оценка: {(Math.round(raiting*100))/100}</button>
+        <CardActions sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <button onClick={() => console.log(id)}>
+            Оценка: {Math.round(raiting * 100) / 100}
+          </button>
           {/* <IconButton> */}
-            {/* <FavoriteIcon sx={{color:"disabled"}} ></FavoriteIcon> */}
-            {/* <FavoriteIcon onClick={()=>AddDeleteFavouriteFilm({url:`/account/${22187086}/favorite/movies`})} sx={{color:"#da1010"}} ></FavoriteIcon> */}
-            <MyFavouriteIcon id={id} ></MyFavouriteIcon>
+          {/* <FavoriteIcon sx={{color:"disabled"}} ></FavoriteIcon> */}
+          {/* <FavoriteIcon onClick={()=>AddDeleteFavouriteFilm({url:`/account/${22187086}/favorite/movies`})} sx={{color:"#da1010"}} ></FavoriteIcon> */}
+          <MyFavouriteIcon id={id}></MyFavouriteIcon>
           {/* </IconButton> */}
-        </CardActions>   
+        </CardActions>
         {/* </Paper>    */}
       </Box>
-      
     </Card>
-    
   );
 }
 

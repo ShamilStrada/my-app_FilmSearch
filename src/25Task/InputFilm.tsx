@@ -43,7 +43,7 @@ export const InputFilm = ({funChangeFilm, page}:Film) => {
         setFlag(!flag);
       }}
     >
-      <TextField
+      <TextField sx={{width: "80%"}}
         placeholder="Введите название фильма"
         onChange={(e) => setValueInput(e.target.value)}
         value={valueInput}

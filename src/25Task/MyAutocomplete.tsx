@@ -1,28 +1,28 @@
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import { createContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { useImmer } from "use-immer";
 //Есть проблема с тем как сохранять себе полученные данные из fetch
 //Пробросить данные сразу в Card
-const top100Films = [
-  "Боевик",
-  "Комедия",
-  "Драма",
-  "Триллер",
-  "Ужасы",
-  "Фантастика",
-  "Детектив",
-];
+// const top100Films = [
+//   "Боевик",
+//   "Комедия",
+//   "Драма",
+//   "Триллер",
+//   "Ужасы",
+//   "Фантастика",
+//   "Детектив",
+// ];
 interface Genre {
   id:number;
   name:string;
 }
 interface filters {
   state:[];
-  funChange:Function;
+  funChange:(value:[])=>void;
 }
-export function MyAutocomplete({state, funChange}:filters) {
-  const [renderInput, setrenderInput] = useState<any[]>([]);
+export function MyAutocomplete({funChange}:filters) {
+  const [renderInput, setrenderInput] = useState<Genre[]>([]);
   const url = `https://api.themoviedb.org/3/genre/movie/list?language=ru`;
   const [dataFilters, setdataFilters] = useImmer<Genre[]>([]);
   // const [dataFilters, setdataFilters] = useState<any[]>([])

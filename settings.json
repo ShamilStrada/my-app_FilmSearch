@@ -1,4 +1,6 @@
 {
+  "typescript.suggest.autoImports": false,
+  "javascript.suggest.autoImports": false,
    "typescript.disableAutomaticTypeAcquisition": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true
