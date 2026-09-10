@@ -58,7 +58,7 @@ export function MyAutocomplete({state, funChange}:filters) {
         <a>Выбранные категории:</a>
       </div>
       <span></span>
-      <Autocomplete
+      <Autocomplete sx={{}}
         value={renderInput}
         onChange={(e, value) => {
           setrenderInput(value);

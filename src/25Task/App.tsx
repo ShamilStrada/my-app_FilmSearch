@@ -46,14 +46,16 @@ export function App({ funfilter }: App) {
       
       <Box component={Paper} elevation={10}
         sx={{
-          width: 420,
-          height:"97vh",
+          width: "22%",
+          height:"100%",
           m: 1,
           // border: '3px dashed',
           position: 'absolute', //позиция
           top: 0, //перенесли бокс в правый верхний угол
           left: 0,
-          display: 'block', //отображение
+          display: 'flex',
+          flexDirection:'column',
+          justifyContent:'left' //отображение
         }}
       >
         <Box sx={{ mb: 1, display: 'flex', gap: 2 }}>
@@ -62,7 +64,7 @@ export function App({ funfilter }: App) {
             <ClearIcon></ClearIcon>
           </IconButton>
         </Box>
-        <Box sx={{ mb: 1, display: 'block', gap: 2 }}>
+        <Box sx={{ mb: 1, display: 'flex', gap: 2 , flexDirection:'column'}}>
           <InputFilm page={page} funChangeFilm={funSearchFilm}></InputFilm>
         </Box>
         <MyFilter state={results} handleState={ChangeResults} page={page}></MyFilter>
@@ -73,15 +75,15 @@ export function App({ funfilter }: App) {
           state={filterAutocomplete}
           funChange={funChangeApp}
         ></MyAutocomplete>
-        <MyPagination page={page} handleChangePage={handleChangePage}></MyPagination>
+        <MyPagination  page={page} handleChangePage={handleChangePage}></MyPagination>
       </Box>
       
       <Box component={Paper} elevation={10}
         sx={{
           // border: '3px dashed',
           // borderRadius:"5",
-          width: 1200,
-          height: "97vh",
+          width: "75%",
+          height: "100%",
           position: 'fixed', //позиция
           top: 0, //перенесли бокс в правый верхний угол
           right: 0,

@@ -11,7 +11,7 @@ interface MyPaginationProps{
 export function MyPagination({page,handleChangePage}:MyPaginationProps) {  
   return (
     <>
-      <Box sx={{ pt: 40 }}>
+      <Box sx={{ display:"flex", mt:"auto"}}>
         <Stack spacing={1}>
           <Typography>Страница:{page}</Typography>
           <Pagination
